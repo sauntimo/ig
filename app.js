@@ -8,11 +8,18 @@ var express = require('express')
     , util = require('util')
     , InstagramStrategy = require('passport-instagram').Strategy
     , https = require('https')
-    , q = require('q')
-    , config = require('./config');
+    , q = require('q');
 
-var INSTAGRAM_CLIENT_ID = config['INSTAGRAM_CLIENT_ID'];
-var INSTAGRAM_CLIENT_SECRET = config['INSTAGRAM_CLIENT_SECRET'];
+
+if(typeof process.env.environment === 'undefined' ){
+    var config = require('./config');
+    var INSTAGRAM_CLIENT_ID = config['INSTAGRAM_CLIENT_ID'];
+    var INSTAGRAM_CLIENT_SECRET = config['INSTAGRAM_CLIENT_SECRET'];
+}else{
+    var INSTAGRAM_CLIENT_ID = process.env['INSTAGRAM_CLIENT_ID'];
+    var INSTAGRAM_CLIENT_SECRET = process.env'INSTAGRAM_CLIENT_SECRET'];    
+}
+
 
 
 // Passport session setup.
