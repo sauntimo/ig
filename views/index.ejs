@@ -1,5 +1,16 @@
 <% if (!user) { %>
 	<h2>Welcome! Please log in.</h2>
+	<a href="/auth/instagram">Login with Instagram</a>
 <% } else { %>
-	<h2>Hello, <%= user.username %>.</h2>
+	<h1><%= user.displayName %></h1>
+	<p><a href="http://instagram.com/<%= user.username %>">@<%= user.username %></a></p>
+	<p><%= user._json.data.bio %></p>
+	<img src="<%= user._json.data.profile_picture %>" />
+	<br />
+
+	<% if( typeof data !== 'undefined'){ %>
+		<p>data object: <%= JSON.stringify( data ) %></p>
+	<% } %>
+
+
 <% } %>

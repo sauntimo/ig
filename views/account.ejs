@@ -1,3 +1,65 @@
-<p>ID: <%= user.id %></p>
-<p>Username: <%= user.username %></p>
-<p>Name: <%= user.displayName %></p>
+<meta charset="UTF-8">
+<title>Instagram Test</title>
+
+<style>
+    body {
+    	padding: 50px;
+    	font-family: helvetica, arial, sans-serif;
+    	color: #333333;
+    }
+
+    a{
+    	text-decoration: none;
+    	color: #428bca;
+    }
+
+    h1{
+    	font-size: 40px;
+    	font-weight: 200;
+    	margin: 0;
+    }
+	
+	.header,
+	.header img,
+	.header .header_text{
+		float: left;
+		clear: none;
+	}
+
+	.header{
+		width: 100%;
+		padding-bottom: 20px;
+	}
+
+	.header_text{
+		max-width: 500px;
+		padding-left: 20px;
+	}
+
+	.thumbnail-link{
+		float: left;
+		clear: none;
+		margin: 0 20px 20px 0;
+	}
+	
+
+</style>
+
+	<div class="header">
+		<img src="<%= user._json.data.profile_picture %>" />
+		<div class="header_text">
+			<h1><%= user.displayName %></h1>
+			<p><a href="http://instagram.com/<%= user.username %>">@<%= user.username %></a></p>
+			<p><%= user._json.data.bio %></p>
+		</div>
+	</div>
+
+	
+	<br />
+
+	<% data.forEach(function(item) { %>
+        <a class="thumbnail-link" href="<%= item.images.standard_resolution.url %>">
+        	<img class="thumbnail" src="<%= item.images.thumbnail.url %>" />
+        </a>
+    <% }); %>
+
