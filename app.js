@@ -17,7 +17,7 @@ if(typeof process.env.environment === 'undefined' ){
     var INSTAGRAM_CLIENT_SECRET = config['INSTAGRAM_CLIENT_SECRET'];
 }else{
     var INSTAGRAM_CLIENT_ID = process.env['INSTAGRAM_CLIENT_ID'];
-    var INSTAGRAM_CLIENT_SECRET = process.env'INSTAGRAM_CLIENT_SECRET'];    
+    var INSTAGRAM_CLIENT_SECRET = process.env['INSTAGRAM_CLIENT_SECRET'];    
 }
 
 
