@@ -203,7 +203,9 @@ app.get('/logout', function(req, res){
     res.redirect('/');
 });
 
-app.listen(process.env.PORT || 3000, function(error) {
+var port = process.env.PORT || 3000;
+
+app.listen(port, function(error) {
     if (error) {
         console.error(error)
     } else {
