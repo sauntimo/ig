@@ -8,7 +8,8 @@ var express = require('express')
     , util = require('util')
     , InstagramStrategy = require('passport-instagram').Strategy
     , https = require('https')
-    , q = require('q');
+    , q = require('q')
+    , cookieSession = require('cookie-session');
 
 
 if(typeof process.env.environment === 'undefined' ){
@@ -132,7 +133,8 @@ var app = express();
     }));
     app.use(bodyParser.json());
     app.use(methodOverride());
-    app.use(session({
+    app.use(cookieSession({
+        name: 'session',
         saveUninitialized: true,
         resave: true,
         secret: 'secret'

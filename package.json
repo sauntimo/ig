@@ -1,19 +1,20 @@
 {
-    "name": "passport-instagram-examples-login",
-    "version": "0.0.0",
-    "dependencies": {
-        "body-parser": "^1.14.2",
-        "cookie-parser": "^1.4.1",
-        "ejs": "^2.3.4",
-        "express": "^4.13.3",
-        "express-session": "^1.13.0",
-        "method-override": "^2.3.5",
-        "morgan": "^1.6.1",
-        "passport": "^0.3.2",
-        "passport-instagram": "^1.0.0",
-        "q": "~1.4.1"
-    },
-    "scripts": {
-        "start": "node app.js"
-    }
+  "name": "passport-instagram-examples-login",
+  "version": "0.0.0",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "cookie-parser": "^1.4.1",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "express-session": "^1.13.0",
+    "method-override": "^2.3.5",
+    "morgan": "^1.6.1",
+    "passport": "^0.3.2",
+    "passport-instagram": "^1.0.0",
+    "q": "~1.4.1",
+    "cookie-session": "~2.0.0-alpha.1"
+  },
+  "scripts": {
+    "start": "node app.js"
+  }
 }
