@@ -17,11 +17,11 @@ if(typeof process.env.environment === 'undefined' ){
     var config = require('./config');
     var INSTAGRAM_CLIENT_ID = config['INSTAGRAM_CLIENT_ID'];
     var INSTAGRAM_CLIENT_SECRET = config['INSTAGRAM_CLIENT_SECRET'];
-    var INSTAGRAM_CLIENT_CALLBACK = config['INSTAGRAM_CLIENT_CALLBACK'];
+    var INSTAGRAM_CLIENT_CALLBACK = config['INSTAGRAM_CLIENT_CALLBACK'].replace( '{{PORT}}', port );
 }else{
     var INSTAGRAM_CLIENT_ID = process.env['INSTAGRAM_CLIENT_ID'];
     var INSTAGRAM_CLIENT_SECRET = process.env['INSTAGRAM_CLIENT_SECRET'];    
-    var INSTAGRAM_CLIENT_CALLBACK = process.env['INSTAGRAM_CLIENT_CALLBACK'].replace( '{{PORT}}', port );    
+    var INSTAGRAM_CLIENT_CALLBACK = process.env['INSTAGRAM_CLIENT_CALLBACK'];    
 }
 
 
@@ -49,7 +49,7 @@ passport.deserializeUser(function(obj, done) {
 passport.use(new InstagramStrategy({
         clientID: INSTAGRAM_CLIENT_ID,
         clientSecret: INSTAGRAM_CLIENT_SECRET,
-        callbackURL: "http://tsvm:3000/auth/instagram/callback"
+        callbackURL: INSTAGRAM_CLIENT_CALLBACK
     },
     function(accessToken, refreshToken, profile, done) {
         // asynchronous verification, for effect...
